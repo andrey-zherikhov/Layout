@@ -5,14 +5,14 @@ import { MachinesPageComponent } from './pages/machines-page/machines-page.compo
 import { UnknownPageComponent } from './pages/unknown-page/unknown-page.component';
 
 export const routes: Routes = [
+  { path: 'login', component: LoginPageComponent },
   {
     path: '',
     component: MainLayoutComponent,
     children: [
       { path: 'machines', component: MachinesPageComponent },
       { path: '', pathMatch: 'full', redirectTo: 'machines' },
+      { path: '**', component: UnknownPageComponent },
     ],
   },
-  { path: 'login', component: LoginPageComponent },
-  { path: '**', component: UnknownPageComponent },
 ];
